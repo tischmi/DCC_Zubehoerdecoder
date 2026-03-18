@@ -118,4 +118,6 @@
 					  war nicht auskommentiert, so dass immer eine Konfig aus den Beispielen verwendet wurde.    
 
      Version 7.1.2	- Bei einem Servo mit 2 Relais waren nach Reset bis zum ersten Weichenbefehl beide Relais angezogen.
+
+     Version 7.1.3	- Bei SoftLeds wurde noch der alte Klassenname (SoftLed statt MoToSofLed) verwendet, was mit MobaTools V3 nicht mehr kompatibel ist.
 					  
