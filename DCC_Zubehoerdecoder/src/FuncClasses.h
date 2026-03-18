@@ -93,7 +93,7 @@ void _digitalWrite( byte port, byte state ) ;
     MoToTimer _pulseT[3];
 	
     uint16_t _cvAdr;            // Adresse des CV-Blocks mit den Funktionsparametern
-    SoftLed *_ledS[3] = { NULL, NULL, NULL };      // Softled-Objekte
+    MoToSoftLed *_ledS[3] = { NULL, NULL, NULL };      // Softled-Objekte
     uint8_t *_ledP;         // Pins der Leds
 	uint8_t _pinStat = 0;		// bitcodierter Pinstatus
     struct {
@@ -198,7 +198,7 @@ const byte  LSMODE=0,                 BILD1=1,              BILD2=2, VORSIG=3,  
     uint16_t _cvAdr = 0;            // Adresse des CV-Blocks mit den Funktionsparametern
     uint8_t  _pinAnz;               // Zahl der zugeordnten Ausgangspins : 3(PPWA) je CV-Block 
     uint8_t *_outP;           		// Array mit Pins der Ausgänge
-    SoftLed **_sigLed;              // Pointer auf Array der Softled Objekte
+    MoToSoftLed **_sigLed;              // Pointer auf Array der Softled Objekte
     struct {
         byte state   :2;            // Status der internen State-Machine
         byte sigBild :3;            // aktuelles Signalbild entsprechend letztem sollwert

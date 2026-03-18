@@ -179,7 +179,7 @@ Fstatic::Fstatic( int cvAdr, uint8_t ledP[], bool extended ) {
 		if ( (getParam( modeIx ) & BLKSOFT) && (extended || pNr != 2 ) ) {
         // Ausgangsports als Softleds einrichten
             if ( _ledP[pNr] != NC ) {
-                _ledS[pNr] = new SoftLed;
+                _ledS[pNr] = new MoToSoftLed;
                 byte att;
                 int rise;
                 att=_ledS[pNr]->attach( _ledP[pNr] );
@@ -477,7 +477,7 @@ Fsignal::Fsignal( int cvAdr, uint8_t pins[], uint8_t pinAnz, Fsignal** vorSig ){
     _vorSig = vorSig;   // == NULL wenn kein Vorsignal am Mast
     // Zahl der zugeordneten Ausgangsports (maximal 8 genutzt)
     _outP = pins;
-    _sigLed = new SoftLed*[_pinAnz] ;
+    _sigLed = new MoToSoftLed*[_pinAnz] ;
     _fktStatus.sigBild=0x7; // ungültiges Signalbild
     _fktStatus.state = SIG_WAIT;
     _fktStatus.dark = false;
@@ -499,7 +499,7 @@ Fsignal::Fsignal( int cvAdr, uint8_t pins[], uint8_t pinAnz, Fsignal** vorSig ){
             } else {
                 // Bit = 0 -> Softled
                 byte att; // nur für Testzwecke ( DBSG_PRINT )
-                _sigLed[pIx] = new SoftLed;
+                _sigLed[pIx] = new MoToSoftLed;
                 att=_sigLed[pIx]->attach( _outP[pIx] , getParam( LSMODE ) & LEDINVERT );
                 _sigLed[pIx]->riseTime( SIG_RISETIME );
                 _sigLed[pIx]->write( OFF, BULB );
